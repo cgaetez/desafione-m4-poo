@@ -121,20 +121,20 @@ let estudiante3 = new Student("Claudia", "Gaete", 22);
 let estudiante4 = new Student("Esteban", "Caceres", 20);
 let estudiante5 = new Student("Francisco", "Cornejo", 28);
 
-console.log(Estudiante3, Estudiante4, Estudiante5);
+console.log(estudiante3, estudiante4, estudiante5);
 
 /* Estudiante3.aprobarCurso("PHP y MySQL"); */
 
-console.log(Estudiante3)
+console.log(estudiante3)
 
 Student.prototype.aprobarCurso = function (nuevoCurso) {
      this.cursosAprobados.push(nuevoCurso);
 }
 
 
-Estudiante4.aprobarCurso("JavaScript");
+estudiante4.aprobarCurso("JavaScript");
 
-console.log(Estudiante4)
+console.log(estudiante4)
 
 
 console.log('---------------------')
@@ -152,3 +152,123 @@ this.cursosAprobados = nuevocurso
 let Estudiante6 = new Student2("Maria", "Gaete", 22, "PHP y MySQL");
 
 console.log(Estudiante6)
+
+console.log('---------------------')
+
+
+function Cuadrado (lado) {
+  this.lado = lado;
+  
+}
+
+Cuadrado.prototype.calcularArea = function () {
+    return this.lado * this.lado
+}
+
+Cuadrado.prototype.calcularPerimetro = function () {
+    return this.lado * 4
+}
+
+let cuadrado1 = new Cuadrado(5);
+
+console.log(cuadrado1)
+
+
+console.log(cuadrado1.calcularArea())
+console.log(cuadrado1.calcularPerimetro())
+
+
+function Estudiante8(name) {
+    this.name = name
+}
+
+const paula = new Estudiante8("Paula")
+
+console.log(paula)
+    
+
+const maria = new Estudiante8("Maria")
+console.log(maria)
+
+
+paula.name = 'Josefa'
+
+console.log(paula)
+
+// definiendola con el object defineProperty
+
+/* function Vehiculo (marca) {
+     let _marca = marca
+    Object.defineProperty(this, "_getmarca", {
+      get: function () {
+        return _marca;
+      },
+    });
+    Object.defineProperty(this, "_setmarca", {
+      set: function (marca) {
+        _marca = marca;
+      },
+    });
+}
+ */
+
+/* Vehiculo.prototype.getmarca = function () {
+    return this._getmarca
+}
+
+Vehiculo.prototype.setmarca = function (nueva_marca) {
+    this._setmarca = nueva_marca
+}
+
+const v1 = new Vehiculo('Toyota')
+
+console.log(v1.getmarca())
+
+const v2 = new Vehiculo('Nissan')
+console.log(v2.getmarca())
+
+v2._marca = 'Chevrolet'
+console.log(v2.marca)
+
+v1.setmarca("Kia");
+console.log(v1.getmarca());  */
+
+
+function Vehiculo(marca) {
+    let _marca = marca
+    
+    //getter
+    this.getMarca = function () {
+        return _marca
+    }
+
+    //setter
+    this.setMarca = function (nueva_marca) {
+        _marca = nueva_marca
+    }
+}
+
+let v2 = new Vehiculo('Hiunday')
+console.log(v2.getMarca())
+
+
+v2.setMarca('Honda')
+console.log(v2.getMarca())
+
+
+function Persona(nombre, mascota) {
+  this.nombre = nombre;
+  this.mascota = mascota;
+}
+
+
+function Mascota(nombre) {
+  this.nombre = nombre;
+}
+
+
+let m1 = new Mascota("Snowball");
+let p1 = new Persona("Julián", m1);
+
+console.log(m1)
+console.log(p1)
